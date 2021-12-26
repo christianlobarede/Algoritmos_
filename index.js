@@ -168,7 +168,7 @@ function prinPar(x){
     return new_arr
   }
 
- console.log(sumImpar(matriz2))
+ //console.log(sumImpar(matriz2))
  /* Ejercicio 8 
  Longitudes previas - Pasado un array (similar a decir ‘tomado un array’ o ‘dado un array’)
  que contiene strings, 
@@ -184,7 +184,7 @@ function prinPar(x){
  }
 
 
- console.log(stringLargo(string_matriz))
+// console.log(stringLargo(string_matriz))
 
 
 /* Ejercicio 9 
@@ -193,8 +193,21 @@ con todos los valores del original,
  pero sumando 7 a cada uno. No alteres el array original. 
 Por ejemplo, agregaSiete([1,2,3) debería devolver [8,9,10] en un nuevo array. 
 */
+const new_ = [1,2,3,4,5,6]
+function plus7(matriz){
+  return matriz.map(n => n + 7)
+}
+
+console.log(plus7(new_))
+
 /* Ejercicio 10
 Array Inverso - Dado un array, escribe una función que invierte sus valores en el lugar. 
 Ejemplo: invertir([3,1,6,4,2)) devuelve el mismo array pero con sus valores al revés, es decir [2,4,6,1,3]. 
 Haz esto sin crear un array temporal vacío. (Pista: necesitarás intercambiar (swap) valores).
 */
+
+function trade(matriz){
+  return matriz.map(( n, idx ) => matriz[matriz.length - 1 - idx])
+}
+
+console.log(trade(new_))
