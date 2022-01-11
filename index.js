@@ -20,9 +20,9 @@ function bigNum( x ){
 }
 
 /* Solucion Declarativa */
-/* const bigNum = ( x ) => {
+/*  const bigNum = ( x ) => {
   return x.map(d => (d > 0 ? 'big' : d))
-} */
+}  */
 
 
 /* Solucion Beta */
@@ -42,9 +42,9 @@ el menor valor del array, y devolver (return) el mayor.
 
 /* Solucion Imperativa */
 const printReturn = (x) => {
-  let min = 0;
   let max = 0;
   for(let i = 0; i < x.length; i ++){
+    let min = x[i];
     if(x[i] < min){
       min = x[i]
     }
@@ -56,11 +56,88 @@ const printReturn = (x) => {
   return { max }
 }
 
-/* Solucion Declarativa */
-function minMax_(matriz){
-  console.log({ max: Math.max(...matriz) })
-  return { min: Math.min(...matriz) }
+//console.log( printReturn(matriz2) )
+
+// recorrer una lista 
+// definir el minimo y el maximo inicial y donde definirlo
+// determinar el minimo y maximo
+
+              /*0   1   2  3  4  */ /* este es el index la posicion*/
+const lista = [10, 5, 30, 1, 5]
+              /*1   2   3  4  5*/ /* este es largo */
+
+
+/* const GLOBAL = {
+  min: function(x){
+    let min = x[0]
+    for(let i = 0; i < x.length; i++){
+      /*  */
+/*         if (x[i] < min) {
+          min = x[i] //execute this 
+        }
+      }
+      return { min }
+  } */
+
+
+
+const GLOBAL = {
+  min: function(array){
+    this.min = array[0]
+    for(let i = 0; i < array.length; i++){
+      if(array[i] < this.min){
+        this.min = array[i]
+      }
+    }
+    return { min : this.min}
+  },
+  max : function(){
+    this.max = null
+  }
 }
+//console.log( minimo(lista) )
+
+
+//console.log(GLOBAL.min([10,6,2,15]))
+
+
+
+/**
+ * 
+ * @param { Array<[]> }  
+ * @returns { number } 
+ */
+
+function minMax_(lista){
+  console.log({ max: Math.max(...lista) })
+  return { min: Math.min(...lista) }
+}
+
+//spread
+
+
+let user = {
+  rut: '',
+  pais: '',
+  name: '',
+  email: ''
+}
+
+
+
+user = {
+  ...user,
+  email: 'juanito'
+}
+
+console.log(user)
+//console.log( minMax([5,4,1,2,8]) )
+
+
+
+
+
+
 
 /* Solucion Declarativa beta */
 function minMax(matriz){
@@ -101,7 +178,7 @@ function lastDigit( matriz ){
 }
 
 
-console.log(lastDigit(matriz))
+//console.log(lastDigit(matriz))
 /* Ejericio 4 
 Doble Visión - Dado un array, crea una función que devuelva un nuevo array donde cada valor se duplique. Entonces, 
 doble([1,2,3]) debiera devolver [2, 4, 6] sin cambiar el array original. */
@@ -110,7 +187,7 @@ function double(matriz){
   return matriz.map(x => x*2)
 }
 
-console.table(double(matriz))
+//console.table(double(matriz))
 /* Ejericio 5 
 Contar Positivos -  Dado un array de números, crea una función para reemplazar el último valor con 
 el número de valores 
@@ -198,7 +275,7 @@ function plus7(matriz){
   return matriz.map(n => n + 7)
 }
 
-console.log(plus7(new_))
+//console.log(plus7(new_))
 
 /* Ejercicio 10
 Array Inverso - Dado un array, escribe una función que invierte sus valores en el lugar. 
@@ -210,4 +287,16 @@ function trade(matriz){
   return matriz.map(( n, idx ) => matriz[matriz.length - 1 - idx])
 }
 
-console.log(trade(new_))
+function tradeImperativo(matriz){
+  const new_matriz = []
+  for(let i = 0; i < matriz.length; i++){
+    new_matriz.push(matriz[matriz.length - 1 - i])
+  }
+  return new_matriz
+}
+
+
+const data = [ 1 , 2 , 3 , 4 , 5 , -6, -2, -10, 12, -100, 15, -1000]
+
+//console.log(trade(new_))
+//console.log(tradeImperativo(new_))
